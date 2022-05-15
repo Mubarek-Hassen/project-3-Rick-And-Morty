@@ -1,19 +1,32 @@
-// import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-// import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./header";
 import Footer from "./footer";
 const Main = ()=>{
-    // const [cards, setCards] = useState()
+    const [cards, setCards] = useState(null)
+    const URL = 'https://rickandmortyapi.com/api'
+
+    const getCards = async ()=>{
+        const data = await fetch(URL)
+        const res = await data.json()
+        setCards(res)
+        console.log(res)
+    }
+    // useEffect(()=>{
+    //     getCard()
+    // })
     return(
         <section>
-            <header>
-                <Header />
-            </header>
+        <header>
+            <Header />
+        </header>
+
+
+
             <main>
                 <div className="card-holder">
-                    <div className="card">
-
+                    <div className="cards">
                     </div>
                 </div>
             </main>
@@ -22,7 +35,7 @@ const Main = ()=>{
 
 
         <footer>
-        <Footer />
+            <Footer />
         </footer>
         </section>
     )
