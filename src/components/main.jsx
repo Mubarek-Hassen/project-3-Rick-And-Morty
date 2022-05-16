@@ -27,9 +27,9 @@ const Main = ()=>{
         <Header />
     </header>
             <section>
-                {cards.map((card)=>{
+                {cards.map((card, idx)=>{
                     return(
-            <section>
+            <section key={idx}>
                 <main>
                     <div className="card-holder">
                         <div className="cards">
