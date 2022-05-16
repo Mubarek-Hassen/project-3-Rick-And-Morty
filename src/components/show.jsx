@@ -10,10 +10,12 @@ const Character = ()=>{
     const beingsId = params.id
     const URL = `https://rickandmortyapi.com/api/character/${beingsId}`
     const [beings, setBeings] = useState('')
+    const [origin,setOrigin] = useState('')
     const beingPage = async ()=>{
         const res = await fetch(URL)
         const data = await res.json()
         setBeings(data)
+        setOrigin(data.origin.name)
     }
     useEffect(()=>{
         beingPage()
@@ -28,8 +30,8 @@ const Character = ()=>{
             <img src={beings.image} alt={beings.name}/>
             <h3>Status: {beings.status}</h3>
             <h3>Species: {beings.species}</h3>
-            <h3></h3>
-            <h3></h3>
+            <h3>Gender:{beings.gender}</h3>
+            <h3>Origin: {origin}</h3>
         </div>
         <div>
             <Footer/>
