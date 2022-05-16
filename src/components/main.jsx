@@ -11,7 +11,7 @@ const Main = ()=>{
         try {
             const data = await fetch(URL)
             const res = await data.json()
-            setCards(res)
+            setCards(res.results)
             console.log(res)
         } catch (error) {
             console.log(error)
@@ -22,34 +22,29 @@ const Main = ()=>{
     },[])
 
     return(
-        <section>
-            {cards.map((card, idx)=>{
-                return(
-                <section>
-        <header>
-            <Header />
-        </header>
-
-
-
-            <main>
-                <div className="card-holder">
-                    <div className="cards">
-                    <h3>{card.results[idx].name}</h3>
+        <>
+    <header>
+        <Header />
+    </header>
+            <section>
+                {cards.map((card)=>{
+                    return(
+            <section>
+                <main>
+                    <div className="card-holder">
+                        <div className="cards">
+                        <h3>{card.name}</h3>
+                        <img src={card.image} alt="card.name" />
+                        </div>
                     </div>
-                </div>
-            </main>
-
-
-
-
-        <footer>
-            <Footer />
-        </footer>
-        </section>
-                )
-        })}
-        </section>
-        )
+                </main>
+            </section>
+                    )
+            })}
+            </section>
+    <footer>
+        <Footer />
+    </footer>
+        </>)
 }
 export default Main
