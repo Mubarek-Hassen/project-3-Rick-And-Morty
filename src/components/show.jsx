@@ -1,7 +1,8 @@
 // import { Link } from 'react-router-dom'
 import React,{ useState, useEffect} from 'react'
 import {useParams} from 'react-router'
-
+import Header from './header'
+import Footer from './footer'
 
 
 const Character = ()=>{
@@ -9,7 +10,7 @@ const Character = ()=>{
     const beingsId = params.id
     // console.log(beingsId)
     const URL = `https://rickandmortyapi.com/api/character/${beingsId}`
-    const [beings, setBeings] = useState(null)
+    const [beings, setBeings] = useState('')
     const beingPage = async ()=>{
         const res = await fetch(URL)
         const data = await res.json()
@@ -18,13 +19,18 @@ const Character = ()=>{
     }
     useEffect(()=>{
         beingPage()
-    }, [])
-
+    },[])
     return (
         <section>
-            {/* {beings.map} */}
+            <div>
+                <Header/>
+            </div>
         <div>
-            <h3>This is a show page</h3>
+            <h3>{beings.name}</h3>
+            <img src={beings.image} alt={beings.name}/>
+        </div>
+        <div>
+            <Footer/>
         </div>
         </section>
     )

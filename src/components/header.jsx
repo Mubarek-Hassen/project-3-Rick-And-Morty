@@ -5,7 +5,7 @@ const Header = ()=>{
     return (
         <section>
         <img src="https://vish213-rick-and-morty.netlify.app/static/media/logo.eab63707.png" alt="Rick And Morty" className='header-img' />
-            <nav>
+            <nav className='h-text'>
                 <Link to={'/'}>Home </Link>
                 <Link to={'/'}>About </Link>
                 <Link to={'/'}>More </Link>
