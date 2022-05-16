@@ -8,13 +8,11 @@ import Footer from './footer'
 const Character = ()=>{
     const params = useParams()
     const beingsId = params.id
-    // console.log(beingsId)
     const URL = `https://rickandmortyapi.com/api/character/${beingsId}`
     const [beings, setBeings] = useState('')
     const beingPage = async ()=>{
         const res = await fetch(URL)
         const data = await res.json()
-        console.log(data)
         setBeings(data)
     }
     useEffect(()=>{
@@ -26,8 +24,12 @@ const Character = ()=>{
                 <Header/>
             </div>
         <div>
-            <h3>{beings.name}</h3>
+            <h2>{beings.name}</h2>
             <img src={beings.image} alt={beings.name}/>
+            <h3>Status: {beings.status}</h3>
+            <h3>Species: {beings.species}</h3>
+            <h3></h3>
+            <h3></h3>
         </div>
         <div>
             <Footer/>
