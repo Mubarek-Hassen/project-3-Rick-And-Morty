@@ -4,7 +4,6 @@ import '../styles/header.css'
 const Header = ()=>{
     return (
         <section>
-        <h1>Welcome to the</h1>
         <img src="https://vish213-rick-and-morty.netlify.app/static/media/logo.eab63707.png" alt="Rick And Morty" className='header-img' />
             <nav>
                 <Link to={'/'}>Home </Link>
