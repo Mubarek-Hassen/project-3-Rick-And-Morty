@@ -13,7 +13,7 @@ const Main = ()=>{
             const data = await fetch(URL)
             const res = await data.json()
             setCards(res.results)
-            console.log(res)
+            // console.log(res)
         } catch (error) {
             console.log(error)
         }
@@ -29,13 +29,14 @@ const Main = ()=>{
     </header>
             <section>
                 {cards.map((card, idx)=>{
+                    const id = card.url.split('character/').slice(1)
                     return(
             <section key={idx}>
                 <main>
             
                 <div className="card-holder">
                     <div className="cards">
-                    <Link to={URL+'/'+card.id}>
+                    <Link to={`/${id}`}>
                     <h3>{card.name}</h3>
                     <img src={card.image} alt="card.name" />
                     </Link> 
