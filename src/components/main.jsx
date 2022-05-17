@@ -10,17 +10,24 @@ import '../styles/main.css'
 const Main = (props)=>{
 
     const [page,setPage] = useState(1)
+    const [prev, setPrev] = useState(42)
 
     const [cards, setCards] = useState([])
-    const URL = `https://rickandmortyapi.com/api/character?page=${page}`
+
+    const [URL, setUrl ]= useState(`https://rickandmortyapi.com/api/character`)
 
     const getCards = async ()=>{
         try {
             const data = await fetch(URL)
             const res = await data.json()
             setCards(res.results)
-            setPage(page +1)
-            // setPage(res.info.next)
+            setPage(page + 1)
+            setUrl(res.info.next)
+
+            {page === 42 ? setPage(1) : setUrl(res.info.next)}
+            {page === 42 ? setUrl(`https://rickandmortyapi.com/api/character`) : setUrl(res.info.next)}
+            // {page === 1 ? setPrev(1) : setPrev(page - 1)}
+
             console.log(page)
         } catch (error) {
             console.log(error)
@@ -35,25 +42,26 @@ const Main = (props)=>{
     <header>
         <Header />
     </header>
-            <section className="container">
+            <section className="">
                 {cards.map((card, idx)=>{
                 const id = card.url.split('character/').slice(1)
         return(
-            <section key={idx}>
-                <main className="main">
-                <div className="card-holder">
-                    <div className="cards">
+            <section key={idx} className='container'>
+                <div className="row" >
+                <div className="col">
+                    <div className="">
                     <Link to={`/${id}`} className='link'>
-                    <h3>{card.name}</h3>
-                    <img src={card.image} alt={card.name} />
+                    <h2>{card.name}</h2>
+                    <img src={card.image} alt={card.name} className="" />
                     </Link> 
                     </div>                   
                 </div>
-                </main>
+                </div>
             </section>
         )
             })}
-            <button onClick={getCards}>Next</button>
+            {/* <button>Previous Page - {prev}</button> */}
+            <button type="button" className="btn btn-warning"onClick={getCards}>Next Page - {page}</button>
             </section>
             <hr />
     <footer>

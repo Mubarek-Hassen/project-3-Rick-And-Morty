@@ -1,13 +1,14 @@
-.header-img{
+#headImg{
     max-width: 20%;
     max-height: 20%;
 }
-.hed{
+/* .hed{
     color: white;
     text-decoration: none;
     background-color: black;
-    /* background-color: rgb(8, 56, 8); */
-    /* background-image: url('https://media0.giphy.com/media/l0Iyei5MxFUMpoPAI/200w.gif?cid=82a1493b53lhbfqoes92j1dm4hj468mr2gb3kqzligu4sygv&rid=200w.gif&ct=s'); */
     background-repeat:no-repeat;
     background-size: 10%;
+} */
+hr{
+    color: white;
 }
