@@ -9,7 +9,7 @@ const Character = ()=>{
     const params = useParams()
     const beingsId = params.id
     const URL = `https://rickandmortyapi.com/api/character/${beingsId}`
-    const [beings, setBeings] = useState('')
+    const [beings, setBeings] = useState([])
     const [origin,setOrigin] = useState('')
     const beingPage = async ()=>{
         const res = await fetch(URL)
@@ -20,6 +20,7 @@ const Character = ()=>{
     useEffect(()=>{
         beingPage()
     },[])
+
     return (
         <section>
             <div>
@@ -34,6 +35,8 @@ const Character = ()=>{
             <h3>Origin: {origin}</h3>
             <h3>{beings.type ? `Type: ${beings.type}`: 'No Type'}</h3>
         </div>
+        <hr />
+        <a href="/"><button>Back To The Universe</button></a>
         <hr />
         <div>
             <Footer/>

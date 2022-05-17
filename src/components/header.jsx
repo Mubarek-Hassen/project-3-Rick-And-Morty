@@ -3,12 +3,12 @@ import '../styles/header.css'
 
 const Header = ()=>{
     return (
-        <section>
+        <section className='hed'>
         <img src="https://vish213-rick-and-morty.netlify.app/static/media/logo.eab63707.png" alt="Rick And Morty" className='header-img' />
-            <nav className='h-text'>
-                <Link to={'/'}>Home </Link>
-                <Link to={'/'}>About </Link>
-                <Link to={'/'}>More </Link>
+            <nav>
+                <Link to={'/'} className='hed'>Home </Link>
+                <Link to={'/'}className='hed'>About </Link>
+                <Link to={'/'}className='hed'>More </Link>
             </nav>
             </section>
     )

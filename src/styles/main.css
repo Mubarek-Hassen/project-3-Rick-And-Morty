@@ -1,0 +1,14 @@
+h3{
+    color: yellow;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    background-image: url('https://media2.giphy.com/media/Yo2fMrTG6dgLdiKX2z/giphy.gif?cid=6c09b952o47shg0mlleljsz5o45zlsh9o5d142a4rbo2wg94&rid=giphy.gif&ct=s');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-attachment: fixed;
+}

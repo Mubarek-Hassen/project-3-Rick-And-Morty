@@ -4,11 +4,10 @@ import React, { useState, useEffect } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import { Link } from "react-router-dom";
-import Next from "./next";
+import '../styles/main.css'
 
 
 const Main = (props)=>{
-
 
     const [page,setPage] = useState(1)
 
@@ -20,8 +19,8 @@ const Main = (props)=>{
             const data = await fetch(URL)
             const res = await data.json()
             setCards(res.results)
-            // setPage(page +1)
-            setPage(res.info.next)
+            setPage(page +1)
+            // setPage(res.info.next)
             console.log(page)
         } catch (error) {
             console.log(error)
@@ -36,15 +35,15 @@ const Main = (props)=>{
     <header>
         <Header />
     </header>
-            <section>
+            <section className="container">
                 {cards.map((card, idx)=>{
                 const id = card.url.split('character/').slice(1)
         return(
             <section key={idx}>
-                <main>
+                <main className="main">
                 <div className="card-holder">
                     <div className="cards">
-                    <Link to={`/${id}`}>
+                    <Link to={`/${id}`} className='link'>
                     <h3>{card.name}</h3>
                     <img src={card.image} alt={card.name} />
                     </Link> 

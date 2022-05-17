@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Character from './components/show';
-import './App.css';
+import './styles/App.css';
 import Main from './components/main';
 function App() {
   return (
