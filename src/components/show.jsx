@@ -30,9 +30,11 @@ const Character = ()=>{
             <img src={beings.image} alt={beings.name}/>
             <h3>Status: {beings.status}</h3>
             <h3>Species: {beings.species}</h3>
-            <h3>Gender:{beings.gender}</h3>
+            <h3>Gender: {beings.gender}</h3>
             <h3>Origin: {origin}</h3>
+            <h3>{beings.type ? `Type: ${beings.type}`: 'No Type'}</h3>
         </div>
+        <hr />
         <div>
             <Footer/>
         </div>

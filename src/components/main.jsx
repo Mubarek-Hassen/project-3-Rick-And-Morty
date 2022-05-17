@@ -4,16 +4,11 @@ import React, { useState, useEffect } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import { Link } from "react-router-dom";
-const Main = ()=>{
+import Next from "./next";
 
-    // let page = 1;
-    // const Paging = (e)=>{
-    //     e.preventDefault()
-    //     useEffect(()=>{
-    //         getCards()
-    //     },[])
-    //     return page + 1
-    // }
+
+const Main = (props)=>{
+
 
     const [page,setPage] = useState(1)
 
@@ -25,7 +20,8 @@ const Main = ()=>{
             const data = await fetch(URL)
             const res = await data.json()
             setCards(res.results)
-            setPage(page +1)
+            // setPage(page +1)
+            setPage(res.info.next)
             console.log(page)
         } catch (error) {
             console.log(error)
@@ -50,7 +46,7 @@ const Main = ()=>{
                     <div className="cards">
                     <Link to={`/${id}`}>
                     <h3>{card.name}</h3>
-                    <img src={card.image} alt="card.name" />
+                    <img src={card.image} alt={card.name} />
                     </Link> 
                     </div>                   
                 </div>
@@ -58,9 +54,9 @@ const Main = ()=>{
             </section>
         )
             })}
-            {/* / a tag to set the href to cards. */}
             <button onClick={getCards}>Next</button>
             </section>
+            <hr />
     <footer>
         <Footer />
     </footer>
