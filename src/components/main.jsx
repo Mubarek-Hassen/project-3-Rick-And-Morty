@@ -7,7 +7,6 @@ import { useParams } from "react-router";
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/main.css'
 
-//Usesearch 
 
 const Main = (props)=>{
     const params = useParams()
@@ -17,8 +16,9 @@ const Main = (props)=>{
     const [cards, setCards] = useState([])
 
     const [URL, setUrl ]= useState(`https://rickandmortyapi.com/api/character`)
-    // const location = useNavigate()
+    const location = useNavigate()
     // console.log(location)
+
     const getCards = async ()=>{
         try {
             const data = await fetch(URL)
@@ -29,7 +29,7 @@ const Main = (props)=>{
 
             {page === 42 ? setPage(1) : setUrl(res.info.next)}
             {page === 42 ? setUrl(`https://rickandmortyapi.com/api/character`) : setUrl(res.info.next)}
-            console.log(page)
+            // console.log(page)
         } catch (error) {
             console.log(error)
         }
@@ -39,7 +39,7 @@ const Main = (props)=>{
     },[])
 
     return(
-        <div className="container border border-success m">
+        <div className="container border border-success">
     <header>
         <Header />
     </header>
@@ -52,12 +52,12 @@ const Main = (props)=>{
             
             <section key={idx} className='col-sm'>
 
-                <div className="m-2" >
+                <div className="" >
 
-                    <div className="">
+                    <div className=" mt-0 mb-5">
 
                     <Link to={`/character/${id}`} className='link'>
-                    <h4 className="mr-4 ml-4 mt-4 ">{card.name}</h4>
+                    <h4 className=" ">{card.name}</h4>
                     <img src={card.image} alt={card.name} className="border border-warning" />
                     </Link> 
                     </div>                   
@@ -67,9 +67,15 @@ const Main = (props)=>{
             })}
             
             </section>
-            <div>
-                {/* <button type="button" className="btn btn-warning">Previous Page</button> */}
-            <Link to={`?page=${page}`}><button type="button" className="btn btn-warning"onClick={getCards}>Next Page</button></Link>
+            <div className="m-2">
+
+
+            <button type="button" className="btn btn-warning m-1" onClick={()=>{location(-1)}}>Prev Page</button>
+
+
+            <Link to={`?page=${page}`}><button type="button" className="btn btn-warning m-1"onClick={getCards}>Next Page</button></Link>
+
+
             </div>
             <hr />
     <footer>
@@ -78,3 +84,5 @@ const Main = (props)=>{
         </div>)
 }
 export default Main
+
+
