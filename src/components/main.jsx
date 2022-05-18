@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 // import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./header";
 import Footer from "./footer";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import '../styles/main.css'
 
+//Usesearch 
 
 const Main = (props)=>{
 
@@ -15,7 +16,8 @@ const Main = (props)=>{
     const [cards, setCards] = useState([])
 
     const [URL, setUrl ]= useState(`https://rickandmortyapi.com/api/character`)
-
+    const location = useNavigate()
+    console.log(location)
     const getCards = async ()=>{
         try {
             const data = await fetch(URL)
@@ -26,8 +28,6 @@ const Main = (props)=>{
 
             {page === 42 ? setPage(1) : setUrl(res.info.next)}
             {page === 42 ? setUrl(`https://rickandmortyapi.com/api/character`) : setUrl(res.info.next)}
-            // {page === 1 ? setPrev(1) : setPrev(page - 1)}
-
             console.log(page)
         } catch (error) {
             console.log(error)
@@ -38,35 +38,41 @@ const Main = (props)=>{
     },[])
 
     return(
-        <>
+        <div className="container">
     <header>
         <Header />
     </header>
-            <section className="">
+            <section className="row">
+            <button onClick={()=>{
+                location(-1)
+            }}>hi here</button>
                 {cards.map((card, idx)=>{
                 const id = card.url.split('character/').slice(1)
         return(
-            <section key={idx} className='container'>
-                <div className="row" >
-                <div className="col">
+            
+            <section key={idx} className='col-sm'>
+
+                <div className="" >
+
                     <div className="">
+
                     <Link to={`/${id}`} className='link'>
                     <h2>{card.name}</h2>
-                    <img src={card.image} alt={card.name} className="" />
+                    <img src={card.image} alt={card.name} className="border border-warning" />
                     </Link> 
                     </div>                   
-                </div>
                 </div>
             </section>
         )
             })}
             {/* <button>Previous Page - {prev}</button> */}
-            <button type="button" className="btn btn-warning"onClick={getCards}>Next Page - {page}</button>
+            
             </section>
+            <button type="button" className="btn btn-warning"onClick={getCards}>Next Page - {page}</button>
             <hr />
     <footer>
         <Footer />
     </footer>
-        </>)
+        </div>)
 }
 export default Main
