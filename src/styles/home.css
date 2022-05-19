@@ -1,0 +1,22 @@
+h1{
+    color: white;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+footer{
+    bottom: 0;
+    width: 100%;
+}
+
+#me {
+    font-size: 38px;
+}
+.Content {
+    margin-left: 100px;
+    margin-right: 100px;
+}

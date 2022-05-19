@@ -7,17 +7,16 @@ import { useParams } from "react-router";
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/main.css'
 
-
 const Main = (props)=>{
-    const params = useParams()
+    // const params = useParams()
+
+    const [back, setBack] = useState('')
 
     const [page,setPage] = useState(1)
 
     const [cards, setCards] = useState([])
 
-    const [URL, setUrl ]= useState(`https://rickandmortyapi.com/api/character`)
-    const location = useNavigate()
-    // console.log(location)
+    const [URL, setUrl ]= useState(`https://rickandmortyapi.com/api/character?page=${page}`)
 
     const getCards = async ()=>{
         try {
@@ -26,14 +25,18 @@ const Main = (props)=>{
             setCards(res.results)
             setPage(page + 1)
             setUrl(res.info.next)
+            // setBack(res.info.prev)
+            console.log(page)
 
             {page === 42 ? setPage(1) : setUrl(res.info.next)}
             {page === 42 ? setUrl(`https://rickandmortyapi.com/api/character`) : setUrl(res.info.next)}
-            // console.log(page)
         } catch (error) {
             console.log(error)
         }
     }
+
+
+
     useEffect(()=>{
         getCards()
     },[])
@@ -57,8 +60,9 @@ const Main = (props)=>{
                     <div className=" mt-0 mb-5">
 
                     <Link to={`/character/${id}`} className='link'>
-                    <h4 className=" ">{card.name}</h4>
+                    
                     <img src={card.image} alt={card.name} className="border border-warning" />
+                    <h4 className=" ">{card.name}</h4>
                     </Link> 
                     </div>                   
                 </div>
@@ -68,14 +72,8 @@ const Main = (props)=>{
             
             </section>
             <div className="m-2">
-
-
-            <button type="button" className="btn btn-warning m-1" onClick={()=>{location(-1)}}>Prev Page</button>
-
-
-            <Link to={`?page=${page}`}><button type="button" className="btn btn-warning m-1"onClick={getCards}>Next Page</button></Link>
-
-
+                {/* <button onClick={''}></button> */}
+                <button type="button" className="btn btn-warning m-1"onClick={getCards}>See More on Page-{page}</button>
             </div>
             <hr />
     <footer>

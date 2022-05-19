@@ -1,9 +1,8 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import React,{ useState, useEffect} from 'react'
 import {useParams} from 'react-router'
 import Header from './header'
 import Footer from './footer'
-
 
 const Character = ()=>{
     const params = useParams()
@@ -20,7 +19,6 @@ const Character = ()=>{
     useEffect(()=>{
         beingPage()
     },[])
-
     return (
         <section>
             <div>
@@ -28,15 +26,20 @@ const Character = ()=>{
             </div>
         <div>
             <h2>{beings.name}</h2>
-            <img src={beings.image} alt={beings.name}/>
+            <img src={beings.image} alt={beings.name} className='border border-warning border-3'/>
             <h3>Status: {beings.status}</h3>
             <h3>Species: {beings.species}</h3>
             <h3>Gender: {beings.gender}</h3>
             <h3>Origin: {origin}</h3>
             <h3>{beings.type ? `Type: ${beings.type}`: 'No Type'}</h3>
+           { beings.name== "Rick Sanchez" ? <img src={ beings.name== "Rick Sanchez" ? 'https://64.media.tumblr.com/136bcfb312f8c687c1cd013575690a7f/031605e905c4188a-f7/s540x810/4a0fd55e61f07edf9078d550c2b38df42e914d73.gifv' : <br/>}/> : <br/>}
+
+           { beings.name== "Morty Smith" ? <img className=" img-fluid " src={ beings.name== "Morty Smith" ? 'https://thumbs.gfycat.com/EnviousUnrulyHake-max-1mb.gif' : <br/>}/> : <br/>}
+
+
         </div>
         <hr />
-        <a href="/"><button>Back To The Universe</button></a>
+        <Link to={`/`}><button className='btn btn-warning '>Back To The Universe</button></Link>
         <hr />
         <div>
             <Footer/>
