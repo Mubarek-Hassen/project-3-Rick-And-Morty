@@ -33,7 +33,7 @@ const Main = ()=>{
     },[])
 
     return(
-        <div className="container border border-success">
+        <div className="container ">
         <header>
             <Header />
         </header>
