@@ -1,7 +1,11 @@
-.footer{
-    color: white;
+footer{
+    position: static;
+    margin-top: 5vh;
+    left: 0;
     bottom: 0;
     width: 100%;
+    color: white;
+    text-align: center;
 
 }
 a{
