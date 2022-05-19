@@ -5,7 +5,6 @@ import '../styles/search.css'
 import { useState } from "react"
 
 const Search = () => {
-
     const [query, setQuery] = useState('')
     const [results, setResults] = useState([])
     const [URL, setUrl] = useState(`https://rickandmortyapi.com/api/character?name=${query}`)
@@ -15,7 +14,14 @@ const Search = () => {
         try {
             const response = await fetch(URL)
             const data = await response.json()
+            // Handling 404 error, working on it!
+            // if (data.status === 404){
+            //     return (<p>No Result</p> )
+            // } else {
+                
+            // }
             setResults(data.results)
+            
         } catch(err) {
             console.log(err)
         }
