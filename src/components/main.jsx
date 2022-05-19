@@ -3,20 +3,19 @@ import React, { useState, useEffect } from "react";
 // import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./header";
 import Footer from "./footer";
-import { useParams } from "react-router";
-import { Link, useNavigate } from "react-router-dom";
+// import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import '../styles/main.css'
 
-const Main = (props)=>{
-    // const params = useParams()
+const Main = ()=>{
 
-    const [back, setBack] = useState('')
+    const [offset, setOffset] = useState(0)
 
     const [page,setPage] = useState(1)
 
     const [cards, setCards] = useState([])
 
-    const [URL, setUrl ]= useState(`https://rickandmortyapi.com/api/character?page=${page}`)
+    const [URL, setUrl ]= useState(`https://rickandmortyapi.com/api/character`)
 
     const getCards = async ()=>{
         try {
@@ -25,7 +24,7 @@ const Main = (props)=>{
             setCards(res.results)
             setPage(page + 1)
             setUrl(res.info.next)
-            // setBack(res.info.prev)
+            setOffset(offset + 20)
             console.log(page)
 
             {page === 42 ? setPage(1) : setUrl(res.info.next)}
@@ -72,8 +71,7 @@ const Main = (props)=>{
             
             </section>
             <div className="m-2">
-                {/* <button onClick={''}></button> */}
-                <button type="button" className="btn btn-warning m-1"onClick={getCards}>See More on Page-{page}</button>
+                <button type="button" className="btn btn-warning m-1" onClick={getCards}>See More on Page-{page}</button>
             </div>
             <hr />
     <footer>

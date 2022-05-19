@@ -18,7 +18,7 @@ const Home = ()=>{
             </div>
         </section>
         <div className=""><Link to={'/character'}> <img src="https://pngimg.com/uploads/rick_morty/rick_morty_PNG4.png" alt="Rick pointing" /></Link>
-        <img className="figure-img img-fluid rounded" src="https://ca.slack-edge.com/T0351JZQ0-U035S4AKVRQ-a5e0cf4924a7-512" alt="This Is Me" /></div>
+        </div>
         
         <footer> 
             <Footer/> 

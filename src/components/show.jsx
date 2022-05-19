@@ -32,9 +32,9 @@ const Character = ()=>{
             <h3>Gender: {beings.gender}</h3>
             <h3>Origin: {origin}</h3>
             <h3>{beings.type ? `Type: ${beings.type}`: 'No Type'}</h3>
-           { beings.name== "Rick Sanchez" ? <img src={ beings.name== "Rick Sanchez" ? 'https://64.media.tumblr.com/136bcfb312f8c687c1cd013575690a7f/031605e905c4188a-f7/s540x810/4a0fd55e61f07edf9078d550c2b38df42e914d73.gifv' : <br/>}/> : <br/>}
+           { beings.name== "Rick Sanchez" ? <img src='https://64.media.tumblr.com/136bcfb312f8c687c1cd013575690a7f/031605e905c4188a-f7/s540x810/4a0fd55e61f07edf9078d550c2b38df42e914d73.gifv' /> : <br/>}
 
-           { beings.name== "Morty Smith" ? <img className=" img-fluid " src={ beings.name== "Morty Smith" ? 'https://thumbs.gfycat.com/EnviousUnrulyHake-max-1mb.gif' : <br/>}/> : <br/>}
+           { beings.name== "Morty Smith" ? <img className=" img-fluid " src='https://thumbs.gfycat.com/EnviousUnrulyHake-max-1mb.gif'/> : <br/>}
 
 
         </div>
