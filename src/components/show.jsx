@@ -39,7 +39,7 @@ const Character = ()=>{
 
         </div>
         <hr />
-        <Link to={`/`}><button className='btn btn-warning '>Back To The Universe</button></Link>
+        <Link to={`/character`}><button className='btn btn-warning '>Back To The Universe</button></Link>
         <hr />
         <div>
             <Footer/>
