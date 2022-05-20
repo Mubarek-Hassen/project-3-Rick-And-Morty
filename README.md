@@ -11,6 +11,11 @@ By Mubarek Hassen
 
 ## Visual Representation
 
+![Screen Shot 2022-05-19 at 11 17 31 PM](https://user-images.githubusercontent.com/102003916/169443966-40c3fa50-3723-464f-af02-3912d25de99b.png)
+
+![Screen Shot 2022-05-19 at 11 19 14 PM](https://user-images.githubusercontent.com/102003916/169444000-10f453b3-f460-43e7-a392-c717c61844d6.png)
+
+
 
 
 ## Technologies Used
